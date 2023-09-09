@@ -1,0 +1,5 @@
+@mixin button-checkbox($secondary, $default) {
+    width: 10px !important; height: 20px !important;
+    border: 2px solid map-get($colour, "$secondary");
+    background-color: map-get($colour, "$default");
+};
