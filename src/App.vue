@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import AboutForm from "./components/AboutForm.vue";
-import FormContact from "./components/FormContact.vue";
+import FormContact from "./components/FormContact/FormContact.vue";
 </script>
 
 <template>
