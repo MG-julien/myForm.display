@@ -1,9 +1,6 @@
 <template>
     <section>
-        <header>
-            <h2>{{ name }}</h2>
-            <p></p>
-        </header>
+        <HeaderForm />
         <form>
             <InputFirstLastName />
             <InputAdressMail />
@@ -18,6 +15,7 @@
 
 <script setup lang="ts">
 
+import HeaderForm from "./components/HeaderForm.vue";
 import InputFirstLastName from "./components/InputFirstLastName.vue";
 import InputAdressMail from "./components/InputAdressMail.vue";
 import InputAboutYou from "./components/InputAboutYou.vue";
@@ -26,21 +24,15 @@ import InputComment from "./components/InputComment.vue";
 import InputResponseAtTheLatest from "./components/InputResponseAtTheLatest.vue";
 import InputSubmit from "./components/InputSubmit.vue";
 
-const name = "FormContact"
 </script>
 
 <style scoped lang="scss">
 @import "../../assets/main.scss";
 section {
     position: relative;
-    width: 50%; height: 100vh;
+    width: 50vw; height: 100vh;
+    padding: 80px;
     background-color: map-get($colour, "primary");
-    
-    header {
-        h2 {
-            @include font-title-bold--secondary;
-        }
-    }
     
     form {
         display: flex;

@@ -35,6 +35,8 @@
     font-family: map-get($font-family, "infoBubble");
     font-size: map-get($font-size, "infoBubble");
     font-weight: map-get($font-weight, "regular");
+    line-height: 1.4rem;
+    text-align: justify;
     color: map-get($colour, "secondary");
 }
 

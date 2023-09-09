@@ -14,6 +14,7 @@ import FormContact from "./components/FormContact/FormContact.vue";
 @import "./assets/main.scss";
 
 div{
+  width: 100%;
   display: flex;
  }
 </style>

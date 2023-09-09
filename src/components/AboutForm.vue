@@ -7,7 +7,8 @@
 <style scoped lang="scss">
 @import "../assets/main.scss";
 h2{
-    width: 50%; height: 100vh;
+    position: relative;
+    width: 50vw; height: 100vh;
     @include font-title-bold--primary;
     background-color: map-get($colour, "secondary");
 }
