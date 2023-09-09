@@ -1,0 +1,46 @@
+@mixin font-title-bold--primary {
+    font-family: map-get($font-family, "title");
+    font-size: map-get($font-size, "title");
+    font-weight: map-get($font-weight, "bold");
+    color: map-get($colour, "primary");
+}
+@mixin font-title-bold--secondary {
+    font-family: map-get($font-family, "title");
+    font-size: map-get($font-size, "title");
+    font-weight: map-get($font-weight, "bold");
+    color: map-get($colour, "sedondary");
+}
+@mixin font-paragraph-regular {
+    font-family: map-get($font-family, "paragraph");
+    font-size: map-get($font-size, "paragraph");
+    font-weight: map-get($font-weight, "regular");
+    color: map-get($colour, "secondary");
+}
+
+@mixin font-paragraph-regular-bold {
+    font-family: map-get($font-family, "paragraph");
+    font-size: map-get($font-size, "paragraph");
+    font-weight: map-get($font-weight, "regular-bold");
+    color: map-get($colour, "secondary");
+}
+
+@mixin font-paragraph-bold {
+    font-family: map-get($font-family, "paragraph");
+    font-size: map-get($font-size, "paragraph");
+    font-weight: map-get($font-weight, "bold");
+    color: map-get($colour, "secondary");
+}
+
+@mixin font-infoBubble-regular {
+    font-family: map-get($font-family, "infoBubble");
+    font-size: map-get($font-size, "infoBubble");
+    font-weight: map-get($font-weight, "regular");
+    color: map-get($colour, "secondary");
+}
+
+@mixin font-infoBubble-bold {
+    font-family: map-get($font-family, "infoBubble");
+    font-size: map-get($font-size, "infoBubble");
+    font-weight: map-get($font-weight, "bold");
+    color: map-get($colour, "quaternary");
+}
