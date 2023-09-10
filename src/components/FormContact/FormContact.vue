@@ -2,8 +2,7 @@
     <section>
         <HeaderForm />
         <form>
-            <InputFirstLastName />
-            <InputAdressMail />
+            <InputNameAndMail />
             <InputAboutYou />
             <InputInTheFrame />
             <InputComment />
@@ -16,8 +15,7 @@
 <script setup lang="ts">
 
 import HeaderForm from "./components/HeaderForm.vue";
-import InputFirstLastName from "./components/InputFirstLastName.vue";
-import InputAdressMail from "./components/InputAdressMail.vue";
+import InputNameAndMail from "./components/InputNameAndMail.vue";
 import InputAboutYou from "./components/InputAboutYou.vue";
 import InputInTheFrame from "./components/InputInTheFrame.vue";
 import InputComment from "./components/InputComment.vue";
@@ -37,11 +35,6 @@ section {
     form {
         display: flex;
         flex-direction: column;
-        
-        input{
-            display: block;
-            border: 2px solid black;
-        }
     }
 }
 

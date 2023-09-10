@@ -1,44 +1,63 @@
 <template>
-    <div :class="attrMainContainer">
-        <div :class="attrFirstNameInput.attrContainer">
-            <input v-bind="attrFirstNameInput.checkbox"/>
-            <label v-bind="attrFirstNameInput.label">{{ attrFirstNameInput.label.text }}</label>
-            <input v-bind="attrFirstNameInput.text" />
+    <div :class="attrContainerParents.containerRoot">
+      <div class="attrContainerParents.containerFirstLastName">
+        <div :class="attrContainerParents.containerFirstLastName.firstNameChildNode">
+          <input :class="attrFirstNameInput.checkbox" />
+          <label :class="attrFirstNameInput.label">{{ attrFirstNameInput.label.text }}</label>
+          <input :class="attrFirstNameInput.text" />
         </div>
-        <div :class="attrLastNameInput.attrContainer">
-            <input v-bind="attrLastNameInput.checkbox"/>
-            <label v-bind="attrLastNameInput.label">{{ attrLastNameInput.label.text }}</label>
-            <input v-bind="attrLastNameInput.text" />
+        <div :class="attrContainerParents.containerFirstLastName.lastNameChildNode">
+          <input :class="attrLastNameInput.checkbox" />
+          <label :class="attrLastNameInput.label">{{ attrLastNameInput.label.text }}</label>
+          <input :class="attrLastNameInput.text" />
         </div>
-    </div>
-</template>
+      </div>
+      <div :class="attrContainerParents.containerAdressMail">
+        <input :class="attrAdressMailInput.checkbox" />
+        <label :class="attrAdressMailInput.label">{{ attrAdressMailInput.label.text }}</label>
+        <input :class="attrAdressMailInput.text" />
+      </div>
+    </div>  
+  </template>
+  
 
 <script setup lang="ts">
-const attrMainContainer = "inputFirstLastName__container";
-const attrFirstNameInput = {
-    attrContainer: "firstNameInput__container",    
+const attrContainerParents = {
+    containerRoot: "componentRoot__firstLastNameMail",
+    containerFirstLastName: {
+        parentNode: "firstAndLastName__container",
+        firstNameChildNode: "firstName__container",
+        lastNameChildNode: "lastName__container",
+    },
+    containerAdressMail: "adressMail__container",
+}
+const attrFirstNameInput = {  
     text: { id: "inputTextFirstName", type: "text", name: "firstName", placeholder: "nom" },
     checkbox: { id: "inputCheckFirstName", type: "checkbox", for: "firstName" },
     label: {  id: "labelCheckFirstName", for: "firstName", text: "nom"},
 };
-const attrLastNameInput = {
-    attrContainer: "lastNameInput__container",    
+const attrLastNameInput = {  
     text: { id: "inputTextLastName", type: "text", name: "lastName", placeholder: "prénom" },
     checkbox: { id: "inputCheckLastName", type: "checkbox", for: "lastName" },
     label: { id: "labelCheckLastName", for: "lastName", text: "prénom" },
+};
+const attrAdressMailInput = {
+    text: { id: "inputTextAdressMail", type: "email", name: "email", placeholder: "jean-de-croix@gmail.com" },
+    checkbox: { id: "inputCheckAdressMail", type: "checkbox", for: "email" },
+    label: { id: "labelCheckAdressMail", for: "email", text: "email" },
 };
 
 </script>
 
 <style scoped lang="scss">
 @import "../../../assets/main.scss";
-.inputFirstLastName__container {
+.firstAndLastName__container {
     display: flex;
     width: 100%; height: 40px;
     justify-content: space-between;
     margin-bottom: 40px;
  
-    .firstNameInput__container, .lastNameInput__container{
+    .firstName__container, .lastName__container{
         position: relative;
         max-width: 250px; width: 250px; height: 100%;
         border-bottom: 2px solid map-get($colour, "secondary");
@@ -80,3 +99,5 @@ const attrLastNameInput = {
         }
 }
 </style>
+
+  
