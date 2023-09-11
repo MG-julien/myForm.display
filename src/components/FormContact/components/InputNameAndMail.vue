@@ -23,8 +23,7 @@ const props = defineProps({
     inputplaceholder: String,
     inputMinlength: Number,
     inputMaxlength: Number,
-})
-console.log(props);
+});
 
 </script>
 
@@ -40,22 +39,23 @@ div {
     border-bottom: 2px solid map-get($colour, "secondary");
     
     label {
-      line-height: 40px;
-      @include font-paragraph-regular;
+        padding-left: 20px;
+        line-height: 40px;
+        @include font-paragraph-regular;
     }
 
     input {
-      flex: 1; /* L'input prend le reste de l'espace disponible */
-      width: 100%;
-      height: 100%;
-      padding-left: 20px;
-      @include font-paragraph-regular;
-      background-color: map-get($colour, "primary");
-      outline: transparent;
+        flex: 1; /* L'input prend le reste de l'espace disponible */
+        width: 100%;
+        height: 100%;
+        padding-left: 20px;
+        @include font-paragraph-regular;
+        background-color: map-get($colour, "primary");
+        outline: transparent;
     }
 
     input::placeholder {
-      color: transparent;
+        color: transparent;
     }
 }
 
