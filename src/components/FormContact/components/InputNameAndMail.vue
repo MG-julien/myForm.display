@@ -1,102 +1,73 @@
 <template>
-    <div :class="attrContainerParents.containerRoot">
-      <div class="attrContainerParents.containerFirstLastName">
-        <div :class="attrContainerParents.containerFirstLastName.firstNameChildNode">
-          <input :class="attrFirstNameInput.checkbox" />
-          <label :class="attrFirstNameInput.label">{{ attrFirstNameInput.label.text }}</label>
-          <input :class="attrFirstNameInput.text" />
-        </div>
-        <div :class="attrContainerParents.containerFirstLastName.lastNameChildNode">
-          <input :class="attrLastNameInput.checkbox" />
-          <label :class="attrLastNameInput.label">{{ attrLastNameInput.label.text }}</label>
-          <input :class="attrLastNameInput.text" />
-        </div>
-      </div>
-      <div :class="attrContainerParents.containerAdressMail">
-        <input :class="attrAdressMailInput.checkbox" />
-        <label :class="attrAdressMailInput.label">{{ attrAdressMailInput.label.text }}</label>
-        <input :class="attrAdressMailInput.text" />
-      </div>
-    </div>  
-  </template>
+    <div :class="props.componentNodeInput" >
+        <label :for="props.inputId">{{ props.inputplaceholder }}</label>
+        <input 
+            :type="props.inputType" 
+            :id="props.inputId" 
+            :name="props.inputName" 
+            :placeholder="props.inputplaceholder" 
+            :minlength="props.inputMinlength"
+            :maxlength="props.inputMaxlength"
+        />
+    </div>
+</template>
   
 
 <script setup lang="ts">
-const attrContainerParents = {
-    containerRoot: "componentRoot__firstLastNameMail",
-    containerFirstLastName: {
-        parentNode: "firstAndLastName__container",
-        firstNameChildNode: "firstName__container",
-        lastNameChildNode: "lastName__container",
-    },
-    containerAdressMail: "adressMail__container",
-}
-const attrFirstNameInput = {  
-    text: { id: "inputTextFirstName", type: "text", name: "firstName", placeholder: "nom" },
-    checkbox: { id: "inputCheckFirstName", type: "checkbox", for: "firstName" },
-    label: {  id: "labelCheckFirstName", for: "firstName", text: "nom"},
-};
-const attrLastNameInput = {  
-    text: { id: "inputTextLastName", type: "text", name: "lastName", placeholder: "prénom" },
-    checkbox: { id: "inputCheckLastName", type: "checkbox", for: "lastName" },
-    label: { id: "labelCheckLastName", for: "lastName", text: "prénom" },
-};
-const attrAdressMailInput = {
-    text: { id: "inputTextAdressMail", type: "email", name: "email", placeholder: "jean-de-croix@gmail.com" },
-    checkbox: { id: "inputCheckAdressMail", type: "checkbox", for: "email" },
-    label: { id: "labelCheckAdressMail", for: "email", text: "email" },
-};
+
+const props = defineProps({
+    componentNodeInput: String,
+    inputType: String,
+    inputId: String,
+    inputName: String,
+    inputplaceholder: String,
+    inputMinlength: Number,
+    inputMaxlength: Number,
+})
+console.log(props);
 
 </script>
 
 <style scoped lang="scss">
 @import "../../../assets/main.scss";
-.firstAndLastName__container {
+
+div {
+    width: 100%;
+    height: 40px;
     display: flex;
-    width: 100%; height: 40px;
-    justify-content: space-between;
-    margin-bottom: 40px;
- 
-    .firstName__container, .lastName__container{
-        position: relative;
-        max-width: 250px; width: 250px; height: 100%;
-        border-bottom: 2px solid map-get($colour, "secondary");
-    }
+    flex-direction: row;
+    align-items: center;
+    border-bottom: 2px solid map-get($colour, "secondary");
     
-    #inputCheckFirstName, #inputCheckLastName {
-        position: absolute; z-index: 2;
-        bottom: 0%; left: 0%;
-        margin-bottom: 10px;
-        width: 10px; height:20px;
-        border: 2px solid black;
-    }
-    /**
-    #inputCheckFirstName, #inputCheckLastName {
-        position: absolute; z-index: 2;
-        bottom: 0%; left: 0%;
-        margin-bottom: 10px;
-        @include button-checkbox(map-get($colour, "secondary"), map-get($colour, "primary"));
+    label {
+      line-height: 40px;
+      @include font-paragraph-regular;
     }
 
-     #inputCheckFirstName:checked, #inputCheckLastName:checked {
-        position: absolute; z-index: 2;
-        bottom: 0%; left: 0%;
-        margin-bottom: 10px;
-        appearance: none;
-        @include button-checkbox(map-get($colour, "secondary"), map-get($colour, "quaternary"));
+    input {
+      flex: 1; /* L'input prend le reste de l'espace disponible */
+      width: 100%;
+      height: 100%;
+      padding-left: 20px;
+      @include font-paragraph-regular;
+      background-color: map-get($colour, "primary");
+      outline: transparent;
     }
-     */
 
-        #inputTextFirstName, #inputTextLastName {
-            position: absolute; z-index: 1;
-            width:100%; height: 100%;
-            padding-left: 20px;
-            @include font-paragraph-regular;
-            background-color: map-get($colour, "primary");
-        }
-        #labelCheckFirstName, #labelCheckLastName {
-            position: absolute;
-        }
+    input::placeholder {
+      color: transparent;
+    }
+}
+
+input:focus::placeholder {
+    color: map-get($colour-rgba, "secondary")
+}
+    
+div:focus-within {
+    transition-duration: 200ms;
+    border-bottom: 8px solid map-get($colour-rgba, "secondary");
+    border-bottom-left-radius: 4px;
+    border-bottom-right-radius: 4px;
 }
 </style>
 
