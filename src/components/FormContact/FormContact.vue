@@ -4,7 +4,7 @@
         <form>
             <div class="container__inputFirstLastName">
                 <InputNameAndMail
-                    :componentNodeInput="'firstName__container'"
+                    :classComponentContainer="'firstName__container'"
                     :inputType="'text'"
                     :inputId="'inputFirstName'"
                     :inputName="'firstName'"
@@ -13,7 +13,7 @@
                     :inputMaxlength="50"
                 />
                 <InputNameAndMail
-                    :componentNodeInput="'lastName__container'"
+                    :classComponentContainer="'lastName__container'"
                     :inputType="'text'"
                     :inputId="'inputLastName'"
                     :inputName="'lastName'"
@@ -23,7 +23,7 @@
                 />
             </div>
             <InputNameAndMail
-                :componentNodeInput="'email__container'"
+                :classComponentContainer="'email__container'"
                 :inputType="'email'"
                 :inputId="'inputEmail'"
                 :inputName="'email'"
@@ -36,29 +36,29 @@
                 <DropDownInput
                     :ulClass="'dropDrop__container'"
                     :liClass="'dropDrop__container__li'"
-                    :liTextValue="'Entreprise'"
                     :inputType="'checkbox'"
-                    :inputId="'sfsfs'"
-                    :inputName="'sfsfsf'"
+                    :inputId="'...'"
+                    :inputName="'...'"
+                    :inputValue="'entreprise'"
                 />
                 <DropDownInput
-                    :ulClass="'dropDrop__container'"
+                :ulClass="'dropDrop__container'"
                     :liClass="'dropDrop__container__li'"
-                    :liTextValue="'Entreprise'"
                     :inputType="'checkbox'"
-                    :inputId="'sfsfs'"
-                    :inputName="'sfsfsf'"
+                    :inputId="'...'"
+                    :inputName="'...'" 
+                    :inputValue="'secteur'"
                 />
             </div>
             <div class="containerDropDown--why">
-                <label>Vous me contactez dans le but :</label>
+                <label>Vous me contactez dans le cadre :</label>
                 <DropDownInput
                     :ulClass="'dropDrop__container'"
                     :liClass="'dropDrop__container__li'"
-                    :liTextValue="'Entreprise'"
                     :inputType="'checkbox'"
-                    :inputId="'sfsfs'"
-                    :inputName="'sfsfsf'"
+                    :inputId="'...'"
+                    :inputName="'...'"
+                    :inputValue="'d\'une mission'"
                 />
             </div>
         </form>
@@ -70,6 +70,21 @@
 import HeaderForm from "./components/HeaderForm.vue";
 import InputNameAndMail from "./components/InputNameAndMail.vue";
 import DropDownInput from "./components/DropDownInput.vue";
+import { reactive } from "vue";
+
+const dropDownWho = reactive({
+    activity : { 
+        campany: { inputId:"selectCompany", inputName:"company", inputValue:"entreprise",},
+        startup: { inputId:"selectStartup", inputName:"startup", inputValue:"startup",},
+        individual: { inputId:"selectIndividual", inputName:"individual", inputValue:"particulier",},
+        another: { inputId:"selectAnother", inputName:"another", inputValue:"autre",},
+    },
+    activityArea: {
+        inputId:"",
+        inputName:"",
+        inputValue:"",
+    }
+})
 </script>
 
 <style scoped lang="scss">

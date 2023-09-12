@@ -1,5 +1,5 @@
 <template>
-    <div :class="props.componentNodeInput" >
+    <div :class="props.classComponentContainer" >
         <label :for="props.inputId">{{ props.inputplaceholder }}</label>
         <input 
             :type="props.inputType" 
@@ -16,7 +16,7 @@
 <script setup lang="ts">
 
 const props = defineProps({
-    componentNodeInput: String,
+    classComponentContainer: String,
     inputType: String,
     inputId: String,
     inputName: String,
