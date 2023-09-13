@@ -1,6 +1,7 @@
 <template>
     <section>
-        <HeaderForm />
+        <cubeInput />
+        <!-- <HeaderForm />
         <form>
             <div class="container__inputFirstLastName">
                 <InputNameAndMail
@@ -61,70 +62,82 @@
                     :inputValue="'d\'une mission'"
                 />
             </div>
-        </form>
+            <div>
+                <DescriptionUserInput 
+                    :inputType="'textarea'"
+                    :inputId="'dfdfdf'"
+                    :inputName="'jnjnjnj'"
+                    :inputPlaceholder="'Décrivez-moi en quelques mots ce que je peux faire pour vous : '"
+                    :input-minlength="10"
+                    :input-maxlength="445"
+                />
+            </div>
+        </form> -->
     </section>
   </template>
   
 
 <script setup lang="ts">
-import HeaderForm from "./components/HeaderForm.vue";
-import InputNameAndMail from "./components/InputNameAndMail.vue";
-import DropDownInput from "./components/DropDownInput.vue";
-import { reactive } from "vue";
+// import HeaderForm from "./components/HeaderForm.vue";
+// import InputNameAndMail from "./components/InputNameAndMail.vue";
+// import DropDownInput from "./components/DropDownInput.vue";
+// import DescriptionUserInput from "./components/DescriptionUserInput.vue";
+// import { reactive } from "vue";
+import cubeInput from './components/cubeInput.vue';
 
-const dropDownWho = reactive({
-    activity : { 
-        campany: { inputId:"selectCompany", inputName:"company", inputValue:"entreprise",},
-        startup: { inputId:"selectStartup", inputName:"startup", inputValue:"startup",},
-        individual: { inputId:"selectIndividual", inputName:"individual", inputValue:"particulier",},
-        another: { inputId:"selectAnother", inputName:"another", inputValue:"autre",},
-    },
-    activityArea: {
-        inputId:"",
-        inputName:"",
-        inputValue:"",
-    }
-})
+// const dropDownWho = reactive({
+//     activity : { 
+//         campany: { inputId:"selectCompany", inputName:"company", inputValue:"entreprise",},
+//         startup: { inputId:"selectStartup", inputName:"startup", inputValue:"startup",},
+//         individual: { inputId:"selectIndividual", inputName:"individual", inputValue:"particulier",},
+//         another: { inputId:"selectAnother", inputName:"another", inputValue:"autre",},
+//     },
+//     activityArea: {
+//         inputId:"",
+//         inputName:"",
+//         inputValue:"",
+//     }
+// })
 </script>
 
 <style scoped lang="scss">
 @import "../../assets/main.scss";
 section {
     position: relative;
-    width: 50vw; height: 100vh;
+    width: 100vw; height: 100vh;
     padding: 80px;
     background-color: map-get($colour, "primary");
 }
-.container__inputFirstLastName {
-    width: 100%; max-width: 100%;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    margin-bottom: 20px;
-    .firstName__container, .lastName__container {
-        width: 50%;
-    }
-    .firstName__container {
-        margin-right: 15px;
-    }
-    .lastName__container {
-        margin-left: 15px;
-    }
-}
-.containerDropDown--who, .containerDropDown--why {
-    width: 100%;
-    height: 40px;
-    display: flex;
-    margin-top: 20px;
+// .container__inputFirstLastName {
+//     width: 100%; max-width: 100%;
+//     display: flex;
+//     flex-direction: row;
+//     justify-content: space-between;
+//     margin-bottom: 20px;
+//     .firstName__container, .lastName__container {
+//         width: 50%;
+//     }
+//     .firstName__container {
+//         margin-right: 15px;
+//     }
+//     .lastName__container {
+//         margin-left: 15px;
+//     }
+// }
+// .containerDropDown--who, .containerDropDown--why {
+//     width: 100%;
+//     height: 40px;
+//     display: flex;
+//     margin-top: 20px;
 
-    label {
-        line-height: 40px;
-        @include font-paragraph-regular-bold; 
-    }
-    .dropDrop__container {
-        flex: 1;
-        min-width:20%; width: 100%;
-        margin-left: 30px;
-    }
-}
+//     label {
+//         line-height: 40px;
+//         @include font-paragraph-regular-bold; 
+//     }
+//     .dropDrop__container {
+//         flex: 1;
+//         min-width:20%; width: 100%;
+//         margin-left: 30px;
+//     }
+// }
 </style>
